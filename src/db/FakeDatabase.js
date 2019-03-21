@@ -18,7 +18,7 @@ class FakeDatabase {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(cloneDeep(this.data))
-      }, 10)
+      }, 500)
     })
   }
 
@@ -28,7 +28,7 @@ class FakeDatabase {
         const primaryKey = this.nextPrimaryKey++
         this.data[primaryKey] = { id: primaryKey, ...value }
         resolve(primaryKey)
-      }, 10)
+      }, 500)
     })
   }
 
@@ -37,7 +37,7 @@ class FakeDatabase {
       setTimeout(() => {
         delete this.data[id]
         resolve()
-      }, 10)
+      }, 500)
     })
   }
 }

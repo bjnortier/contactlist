@@ -3,9 +3,9 @@ import { cloneDeep } from 'lodash'
 
 const creating = (state = 'initial', action) => {
   switch (action.type) {
-    case 'TRY_ADD_CONTACT': return 'in-progress'
-    case 'ADD_CONTACT_SUCCESS': return 'done'
-    case 'ADD_CONTACT_ERROR': return 'error'
+    case 'TRY_CREATE_CONTACT': return 'in-progress'
+    case 'CREATE_CONTACT_SUCCESS': return 'done'
+    case 'CREATE_CONTACT_ERROR': return 'error'
     default: return state
   }
 }

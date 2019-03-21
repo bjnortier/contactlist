@@ -29,6 +29,7 @@
     "three": "0.99.x"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.8.0",
     "event-emitter": "^0.3.5",
     "hershey": "^2.1.2",
     "reselect": "^3.0.1",
@@ -42,6 +43,9 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.16",
+    "@fortawesome/free-regular-svg-icons": "^5.8.0",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "acorn": "^6.0.5",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",

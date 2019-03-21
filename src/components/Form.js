@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import Spinner from './Spinner'
+
 class Form extends Component {
   constructor (props) {
     super(props)
@@ -33,7 +35,7 @@ class Form extends Component {
   render () {
     const { creating } = this.props
     const { name, number } = this.state
-    const spinner = creating === 'in-progress' ? '...' : null
+    const spinner = creating === 'in-progress' ? <Spinner /> : null
     return <div>
       <table><tbody>
         <tr>
