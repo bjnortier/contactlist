@@ -14,7 +14,8 @@
     "lint": "standard",
     "test:unit": "mocha --require @babel/register --recursive test/unit/**",
     "test:unit:watch": "npm run test:unit -- --watch",
-    "test": "npm run lint && npm run test:unit"
+    "test": "npm run lint && npm run test:unit",
+    "start": "webpack-dev-server"
   },
   "peerDependencies": {
     "prop-types": "15.x",
