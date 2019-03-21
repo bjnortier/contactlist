@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class Form extends Component {
   constructor (props) {
@@ -30,7 +31,9 @@ class Form extends Component {
   }
 
   render () {
+    const { creating } = this.props
     const { name, number } = this.state
+    const spinner = creating === 'in-progress' ? '...' : null
     return <div>
       <table><tbody>
         <tr>
@@ -51,8 +54,13 @@ class Form extends Component {
           <td />
         </tr>
       </tbody></table>
+      {spinner}
     </div>
   }
+}
+
+Form.propTypes = {
+  creating: PropTypes.string.isRequired
 }
 
 export default Form
