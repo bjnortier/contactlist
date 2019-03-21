@@ -9,7 +9,7 @@ class Contacts extends Component {
   }
 
   render () {
-    const { contacts, getting, deleting } = this.props
+    const { contacts, getting, deleting, del } = this.props
     const contactsArray = Object.keys(contacts).map(key => contacts[key])
     return <>
       <div>{getting}</div>
@@ -17,6 +17,7 @@ class Contacts extends Component {
         key={i}
         contact={contact}
         deleting={deleting[contact.id]}
+        del={() => del(contact.id)}
       />)}
     </>
   }

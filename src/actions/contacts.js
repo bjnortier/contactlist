@@ -51,18 +51,19 @@ export const getAll = () => {
 export const del = (id) => {
   return dispatch => {
     dispatch({
-      type: `TRY_REMOVE_CONTACTS`
+      type: 'TRY_DELETE_CONTACT',
+      id
     })
     db.getAll()
       .then(contacts => {
         dispatch({
-          type: 'REMOVE_CONTACT_SUCCESS',
+          type: 'DELETE_CONTACT_SUCCESS',
           id
         })
       }, err => {
         console.error(err)
         dispatch({
-          type: 'REMOVE_CONTACT_ERROR',
+          type: 'DELETE_CONTACT_ERROR',
           id,
           message: err.message
         })

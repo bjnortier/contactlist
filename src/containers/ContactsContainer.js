@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getAll: () => dispatch(getAll()),
-    delete: () => dispatch(del())
+    del: (id) => dispatch(del(id))
   }
 }
 
