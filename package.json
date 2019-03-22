@@ -65,7 +65,7 @@
     "round10": "^1.0.3",
     "standard": "^12.0.1",
     "styled-components": "^4.1.3",
-    "styled-normalize": "^8.0.1",
+    "styled-normalize": "^8.0.6",
     "svg-loader": "0.0.2",
     "three": "0.99.x",
     "webpack": "^4.28.4",

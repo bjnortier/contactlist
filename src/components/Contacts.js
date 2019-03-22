@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Contact from './Contact'
+import Spinner from './Spinner'
+import Panel from './Panel'
 
 class Contacts extends Component {
   componentDidMount () {
@@ -11,15 +13,26 @@ class Contacts extends Component {
   render () {
     const { contacts, getting, deleting, del } = this.props
     const contactsArray = Object.keys(contacts).map(key => contacts[key])
-    return <>
-      <div>{getting}</div>
-      {contactsArray.map((contact, i) => <Contact
-        key={i}
-        contact={contact}
-        deleting={deleting[contact.id]}
-        del={() => del(contact.id)}
-      />)}
-    </>
+    let contents = null
+    if (getting === 'done') {
+      if (contactsArray.length) {
+        contents = <table><tbody>
+          {contactsArray.map((contact, i) => <Contact
+            key={i}
+            contact={contact}
+            deleting={deleting[contact.id]}
+            del={() => del(contact.id)}
+          />)}
+        </tbody></table>
+      } else {
+        contents = <div>no contacts</div>
+      }
+    }
+    return <Panel>
+      <h3>Contacts</h3>
+      <div>{getting === 'in-progress' ? <Spinner /> : null}</div>
+      {contents}
+    </Panel>
   }
 }
 

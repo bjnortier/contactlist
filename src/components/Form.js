@@ -1,7 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import Spinner from './Spinner'
+import Panel from './Panel'
+import Button from './Button'
+import Input from './Input'
+import HSpace from './HSpace'
+
+const TR = styled.tr`
+  :last-child {
+    text-align: right;
+  }
+`
 
 class Form extends Component {
   constructor (props) {
@@ -35,29 +48,34 @@ class Form extends Component {
   render () {
     const { creating } = this.props
     const { name, number } = this.state
-    const spinner = creating === 'in-progress' ? <Spinner /> : null
-    return <div>
+    const spinner = creating === 'in-progress' ? <><HSpace /><Spinner /></> : null
+    const buttonDisabled = name === '' || number === ''
+    return <Panel>
+      <h3>New contact</h3>
       <table><tbody>
-        <tr>
-          <td>Name:</td>
-          <td><input
+        <TR>
+          <td><Input
+            placeholder='NAME'
             value={name}
             onChange={this.handleNameChange}
           /></td>
-        </tr><tr>
-          <td>Number:</td>
-          <td><input
+        </TR><TR>
+          <td><Input
+            placeholder='PHONE NUMBER'
             value={number}
             onChange={this.handleNumberChange}
           /></td>
-        </tr>
-        <tr>
-          <td><button onClick={this.handleAddClick}>Add</button></td>
-          <td />
-        </tr>
+        </TR>
+        <TR>
+          <td><Button
+            disabled={buttonDisabled}
+            onClick={this.handleAddClick}
+          >
+            <><FontAwesomeIcon icon={faPlus} />{spinner}</>
+          </Button></td>
+        </TR>
       </tbody></table>
-      {spinner}
-    </div>
+    </Panel>
   }
 }
 

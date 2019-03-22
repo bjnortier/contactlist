@@ -1,8 +1,5 @@
 import FakeDatabase from '../db/FakeDatabase'
-const db = new FakeDatabase([
-  { name: 'bob', number: '0123' },
-  { name: 'sarah', number: '4567' }
-])
+const db = new FakeDatabase()
 
 export const create = (name, number) => {
   return dispatch => {

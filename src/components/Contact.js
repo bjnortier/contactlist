@@ -4,14 +4,23 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import Spinner from './Spinner'
+import Button from './Button'
+import HSpace from './HSpace'
 
 const Contact = (props) => {
   const { contact, deleting, del } = props
-  return <div>
-    {contact.name}:{contact.number}
-    <button onClick={del} ><FontAwesomeIcon icon={faTrashAlt} /></button>
-    {deleting === 'in-progress' ? <Spinner /> : null}
-  </div>
+  const inProgress = deleting === 'in-progress'
+  const spinner = inProgress ? <><HSpace /><Spinner /></> : null
+  return <tr>
+    <td>{contact.name}</td>
+    <td>{contact.number}</td>
+    <td><Button
+      onClick={del}
+      disabled={inProgress}
+    >
+      <FontAwesomeIcon icon={faTrashAlt} />{spinner}
+    </Button></td>
+  </tr>
 }
 
 Contact.propTypes = {
